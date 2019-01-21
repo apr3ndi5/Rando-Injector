@@ -5,7 +5,8 @@
 #define walisson std::cout << "\nXing code desliga sexta-feira !!\n"
 
 // And you need:
-// 1. Modifique todos os bytes(0x00, 0x01, 0x03....)
+// 1. change all bytes(0x00, 0x01, 0x03....) in define "JUNKS" to random bytes
+// 2. change size this block by add new bytes
 #define JUNKS \
 __asm _emit 0x00 \
 __asm _emit 0x01 \
@@ -17,7 +18,7 @@ __asm _emit 0x07 \
 __asm _emit 0x08 \
 
 
-// Não mude isso!
+// Don't change this!
 #define _JUNK_BLOCK(s) __asm jmp s JUNKS __asm s:
 
 char dll[30];
@@ -78,9 +79,9 @@ int main()
 	walisson;
 	
 
-	std::cout << "\nDigite o nome da dll: \n";
+	std::cout << "\nEnter the name of the dll: \n";
 	std::cin >> dll;
-	std::cout << "Digite o nome do processo: \n";
+	std::cout << "Enter the name of the process: \n";
 	std::cin >> processo;
 
 	_JUNK_BLOCK(jmp_label11)
